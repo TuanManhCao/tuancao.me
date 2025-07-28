@@ -16,7 +16,7 @@ AI-powered development
 
 - Twitter: [@tuancm](https://twitter.com/tuancm)
 - GitHub: [@tuanmanhcao](https://github.com/tuanmanhcao)
-- Email: steipete@gmail.com
+- Email: hey@tuancao.me
 
 ---
 

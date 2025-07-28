@@ -5,7 +5,7 @@ pubDatetime: 2022-05-21T00:00:00Z
 tags: ["mindstone", "digital-garden", "launch", "indie-hacker"]
 ---
 
-![Mind Stone](/assets/img/2022/mindstone/mindstone-screenshot.png)
+![Mind Stone](/assets/img/2022/mindstone/mindstone-screenshot.webp)
 
 [MindStone](https://mindstone.tuancao.me/) has been launched for 1 months, I tweeted about it [here](https://twitter.com/tuancm/status/1516688707516268546). I spent about a month to build and launch the product, here is break down of what I learned:
 - Some stats about how it went
