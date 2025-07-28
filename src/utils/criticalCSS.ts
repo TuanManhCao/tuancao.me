@@ -110,23 +110,23 @@ export const criticalCSS = `
   
   /* Font loading optimization */
   @font-face {
-    font-family: 'Atkinson';
-    src: url('/fonts/atkinson-regular.woff') format('woff');
+    font-family: 'DM Mono';
+    src: url('/fonts/DMMono-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
   
   @font-face {
-    font-family: 'Atkinson';
-    src: url('/fonts/atkinson-bold.woff') format('woff');
-    font-weight: 700;
+    font-family: 'DM Mono';
+    src: url('/fonts/DMMono-Medium.ttf') format('truetype');
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
   
   body {
-    font-family: 'Atkinson', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'DM Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
   }
   
   /* Hide elements until JS loads */

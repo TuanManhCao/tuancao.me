@@ -23,7 +23,7 @@ export default defineConfig({
     ],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
-      themes: { light: "min-light", dark: "night-owl" },
+      themes: { light: "catppuccin-macchiato", dark: "catppuccin-macchiato" },
       wrap: true,
     },
   },
@@ -99,11 +99,11 @@ export default defineConfig({
     react(),
     AstroPWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.ico", "peter-avatar.jpg"],
+      includeAssets: ["favicon.ico", "tuancao-avatar.webp"],
       manifest: {
-        name: "Peter Steinberger",
-        short_name: "steipete",
-        description: "AI-powered tools from Swift roots to web frontiers. Everything I build is open source.",
+        name: "Tuan Cao",
+        short_name: "tuancao",
+        description: "AI agentic coding experimenting with new programming frontier.",
         theme_color: "#006cac",
         background_color: "#fdfdfd",
         display: "standalone",
@@ -117,13 +117,13 @@ export default defineConfig({
             type: "image/x-icon",
           },
           {
-            src: "peter-avatar.jpg",
+            src: "tuancao-avatar.webp",
             sizes: "192x192",
             type: "image/jpeg",
             purpose: "any",
           },
           {
-            src: "peter-avatar.jpg",
+            src: "tuancao-avatar.webp",
             sizes: "512x512",
             type: "image/jpeg",
             purpose: "any maskable",

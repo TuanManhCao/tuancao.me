@@ -1,6 +1,6 @@
-# Instructions for Claude
+# CLAUDE.md
 
-This document contains important instructions and notes for Claude when working on this project.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## CRITICAL GUIDELINES
 
@@ -115,3 +115,67 @@ npm run preview
 - **TailwindCSS** - For styling
 - **React** - For interactive components (v18.2.0)
 - **MDX** - For enhanced markdown support
+
+## Common Development Commands
+
+### Core Commands
+- `npm run build:check` - Run Astro type checking, build, and Pagefind indexing
+- `npm run sync` - Sync Astro types
+- `npm run add-source-metadata` - Add source metadata to posts (scripts/add-source-metadata.mjs)
+- `npm run remove-tags` - Remove tags from posts (scripts/remove-tags-from-posts.mjs)
+
+### Git Hooks
+- Pre-commit hooks via Husky run ESLint on staged files
+- Commitizen configured for conventional commits
+
+## High-Level Architecture
+
+### Content Management
+- Blog posts are stored in `src/content/blog/` as Markdown/MDX files organized by year
+- Frontmatter schema is defined in `src/content.config.ts` with required fields:
+  - `title`, `description`, `pubDatetime` (required)
+  - `tags` array, `featured`, `draft`, `unlisted` flags (optional)
+  - `modDatetime`, `ogImage`, `heroImage`, `canonicalURL` (optional)
+  - Dates must be in ISO-8601 format with timezone
+- Content is loaded using Astro's content collections with glob loader pattern
+
+### Routing Structure
+- Static site generation with Astro's file-based routing
+- Dynamic routes for blog posts: `/posts/[...slug]`
+- Pagination: `/posts/[page]` and `/page/[page]`
+- Tag pages: `/tags/[tag]/[...page]`
+- Redirects from old URLs (e.g., `/about.md` → `/about`) handled via `.md.ts` files
+
+### Configuration
+- Site config in `src/consts.ts` - site metadata, navigation, social links (SITE object)
+- Social links in `src/constants.ts` - SOCIALS and SHARE_LINKS arrays
+- Build config in `astro.config.mjs` - integrations, markdown plugins, PWA setup
+- TypeScript path alias: `@/*` maps to `src/*`
+- Tailwind CSS v4 with PostCSS for styling
+
+### Key Features
+- **Search**: Pagefind integration builds search index during build
+- **PWA**: Service worker with offline support via @vite-pwa/astro
+- **OG Images**: Dynamic generation using Satori for social media previews at `/posts/[slug]/index.png`
+- **Sitemap**: Auto-generated with priority rules based on content age
+- **Analytics**: Vercel Analytics and Speed Insights integration
+- **RSS Feed**: Available at `/rss.xml`
+- **Structured Data**: JSON-LD for blog posts and breadcrumbs
+
+### Component Architecture
+- Astro components for static UI (`src/components/*.astro`)
+- React components for interactive elements (`src/components/ui/*.tsx`)
+- Layouts define page structure (`src/layouts/`)
+- Utilities in `src/utils/` handle post filtering, sorting, slug generation
+
+### Image Handling
+- Blog images stored in `/public/assets/img/YEAR/POST-NAME/`
+- Lazy loading implemented via custom remark plugin (`src/utils/remarkLazyLoadImages.mjs`)
+- Original images may be in `/temp-repos/steipete.com/assets/img/`
+
+### Performance Optimizations
+- Critical CSS extraction for above-the-fold content
+- Google Fonts preloading and caching
+- Image lazy loading with native loading attribute
+- Service worker caching strategies for assets
+- Trailing slashes removed for cleaner URLs
